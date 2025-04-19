@@ -1,0 +1,234 @@
+:root {
+    --backrground-color : #000000;
+    --primary-color: #FCA311;
+    --secondary-color : #E5E5E5;
+    --text-color: #FFFFFF;
+    --accent-color: #14213D;
+    --title-color : #ffb703;
+  }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+@font-face {
+    font-family: title_text;
+    src: url(fonts/Monoton-Regular.ttf);
+}
+@font-face {
+    font-family: regular_font;
+    src: url(fonts/ComicNeue-Regular.ttf);
+}
+@font-face {
+    font-family: itialic_font;
+    src: url(fonts/ComicNeue-Italic.ttf);
+}
+@font-face {
+    font-family: light_font;
+    src: url(fonts/ComicNeue-Light.ttf);
+}
+@font-face {
+    font-family: bold_font;
+    src: url(fonts/ComicNeue-Bold.ttf);
+}
+
+html{
+    font-family: 'regular_font' , 'Segoe UI';
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--backrground-color);
+}
+
+body{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    min-block-size: 100vh;
+    flex-direction: column;
+    color: var(--secondary-color);
+    background-color: var(--backrground-color);
+}
+
+h1{
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    font-family: 'title_text';
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--title-color);
+    padding-block-start: 3rem;
+    padding-block-end: 15px;
+}
+
+.form-todos {
+    inline-size: 100%;
+    max-inline-size: 700px;
+    min-block-size: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    padding: 0 10px;
+}
+
+.form-input{
+    align-items: center;
+    block-size: 2.5rem;
+    inline-size: 100%;
+    display: flex;
+    border-radius: 1000px;
+    box-sizing: border-box;
+    color: var(--text-color);
+    border:2px solid var(--primary-color);
+    caret-color: var(--primary-color);
+}
+
+#form-input-1{
+    border: none;
+    padding: 0px 7px;
+    color: var(--text-color);
+    align-items: center;
+    block-size: 2.3rem;
+    font-size: 1.25rem;
+    inline-size: 100%;
+    border-radius: 1000px;
+    box-sizing: border-box;
+    background: transparent;
+    cursor: pointer;
+}
+
+#form-input-1:focus{
+    outline: none;
+}
+
+#add-button{
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    block-size: 2.5rem;
+    inline-size: 5rem;
+    border-radius: 1000px;
+    background: var(--primary-color);
+    font-size: 1.25rem;
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+}
+
+.items{ 
+    display: flex;
+    block-size: 100%;
+    inline-size: 100%;
+    font-size: 1.5rem;
+    align-items: center;
+    border-radius: 1000px;
+    padding: 5px 12px;
+    color: var(--title-color);
+    margin-block-end: 12px;
+    background-color: var(--accent-color);
+}
+
+.items-inside{
+    flex-grow: 1;
+    padding-inline-start: 0px;
+}
+
+.custom-checkbox{
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    min-block-size: 20px;
+    min-inline-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-inline-end: 7px;
+    cursor: pointer;
+    transition: 300ms ease;
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox{
+    background-color: var(--primary-color);
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox svg{
+    fill: var(--text-color);
+}
+
+input[type="checkbox"]:checked ~ #to-do-text{
+    text-decoration: line-through;
+    color: var(--text-color);
+    transition: 300ms ease;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+.delete-button{
+    padding: 3px;
+    background: none;
+    display: flex;
+    inset-inline-end: 1;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.delete-button:hover svg{
+    fill: #ff0033;
+}
+
+.delete-button svg{
+    transition: 300ms ease;
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 0.85rem;
+    }
+
+    .form-todos {
+        padding: 0 1rem;
+    }
+
+    #add-button {
+        position: static;
+        inline-size: 100%;
+        margin-block-start: 10px;
+        padding: 12px;
+        block-size: auto;
+        font-size: 1rem;
+    }
+
+    .form-input {
+        flex-direction: column;
+        block-size: auto;
+        gap: 10px;
+    }
+
+    #form-input-1 {
+        inline-size: 100%;
+    }
+
+    .items {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 1.2rem;
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .delete-button {
+        align-self: flex-end;
+    }
+}
