@@ -48,7 +48,7 @@ html{
     background-color: var(--backrground-color);
 }
 
-body{
+body {
     display: flex;
     padding: 10px;
     align-items: center;
@@ -56,6 +56,7 @@ body{
     flex-direction: column;
     color: var(--secondary-color);
     background-color: var(--backrground-color);
+    transition: background-color 500ms ease, color 500ms ease;
 }
 
 h1{
@@ -178,6 +179,7 @@ input[type="checkbox"]{
     background: none;
     display: flex;
     inset-inline-end: 1;
+    padding-inline-start: 1.25rem;
     border: none;
     justify-content: center;
     align-items: center;
@@ -202,7 +204,7 @@ input[type="checkbox"]{
     }
 
     #add-button {
-        position: static;
+        position : relative;
         inline-size: 100%;
         margin-block-start: 10px;
         padding: 12px;
@@ -232,3 +234,61 @@ input[type="checkbox"]{
         align-self: flex-end;
     }
 }
+
+/* Priority Styling */
+#priority-select {
+    margin-inline-end: 15px;
+    border-radius: 10px;
+    padding: 5px;
+    border-style: none;
+    padding-inline-end: 40px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-size: 1.25rem;
+  }
+
+#priority-select:focus {
+    background-color: var(--accent-color) !important;
+    color: var(--text-color) !important;
+    border: 2px solid var(--primary-color);
+    outline: none;
+}
+
+/* Theme toggle container */
+.theme-toggle-container {
+    position: absolute;
+    inset-block-start: 1rem;
+    inset-inline-end: 1rem;
+    padding: 15px 12px;
+    z-index: 100;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Theme icons */
+.theme-icon {
+    block-size: 2rem;
+    inline-size: 2rem;
+    cursor: pointer;
+    fill: var(--primary-color);
+    transition: transform 300ms ease;
+}
+
+.dark-mode .theme-icon {
+    fill: var(--secondary-color);
+}
+
+.theme-icon:hover {
+    transform: scale(1.5);
+} 
+
+.dark-mode {
+    --backrground-color: #FFFFFF;
+    /* --primary-color: #14213D; */
+    --secondary-color: #222222;
+    --text-color: #000000;
+    --accent-color: #E5E5E5;
+    --title-color: #023047;
+}
+
