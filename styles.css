@@ -92,6 +92,12 @@ h1{
     caret-color: var(--primary-color);
 }
 
+    .form-input input[type="text"]{    
+    padding: 12px 10px;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
 #form-input-1{
     border: none;
     padding: 0px 7px;
@@ -194,46 +200,51 @@ input[type="checkbox"]{
     transition: 300ms ease;
 }
 
-@media (max-width: 600px) {
-    html {
-        font-size: 0.85rem;
+/* Media Query Fixing */
+@media screen and (max-width: 600px) {
+    .form-input {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+        padding: 15px;
     }
 
-    .form-todos {
-        padding: 0 1rem;
-    }
-
-    #add-button {
-        position : relative;
+    .form-input input,
+    .form-input select,
+    .form-input button {
         inline-size: 100%;
-        margin-block-start: 10px;
-        padding: 12px;
-        block-size: auto;
+        padding: 10px;
         font-size: 1rem;
     }
 
-    .form-input {
-        flex-direction: column;
-        block-size: auto;
-        gap: 10px;
+    .form-input select {
+        margin-block-start: 5px;
     }
 
-    #form-input-1 {
-        inline-size: 100%;
+    .form-input button {
+        padding: 12px;
+        font-weight: bold;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-block-end: 20px;
+    }
+
+    #to-do-list {
+        padding: 0 15px;
     }
 
     .items {
-        flex-direction: column;
-        align-items: flex-start;
-        font-size: 1.2rem;
+        margin-block-end: 15px;
         padding: 10px;
-        gap: 5px;
-    }
-
-    .delete-button {
-        align-self: flex-end;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 }
+
 
 /* Priority Styling */
 #priority-select {
